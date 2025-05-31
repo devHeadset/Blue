@@ -1,0 +1,25 @@
+# nix build outputs
+/result
+/*.drv
+/*.lock
+/nix-*
+
+# compiled binaries
+blue
+*.o
+
+# temporary files
+*.tmp
+*.log
+*.swp
+*~
+
+# editor backups (vim, emacs, etc)
+*.bak
+*.orig
+
+# macOS system files (if relevant)
+.DS_Store
+
+# build artifacts
+/build/
