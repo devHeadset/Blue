@@ -1,0 +1,46 @@
+* blue - gtk bluetooth manager
+
+blue is a minimal bluetooth device manager written in c using gtk3, designed for linux (tested on nixos).  
+it allows you to scan, pair, connect, and disconnect bluetooth devices via a simple graphical interface.
+
+** features
+- scan for nearby bluetooth devices  
+- pair devices  
+- connect to devices  
+- disconnect devices  
+- minimal gtk3 ui
+
+** requirements
+- gtk3 development libraries  
+- bluetoothctl (bluez)  
+- gcc and standard build tools  
+- nix package manager (optional for easy building with flakes)
+
+** building & running
+if you use nix, simply run:
+
+  #+begin_src sh
+  nix run
+  #+end_src
+
+or compile manually:
+
+  #+begin_src sh
+  gcc main.c bluetooth.c gui.c -o blue `pkg-config --cflags --libs gtk+-3.0`
+  #+end_src
+
+then run:
+
+  #+begin_src sh
+  ./blue
+  #+end_src
+
+** file structure
+- main.c          : app entry point  
+- bluetooth.c/h   : bluetooth command wrappers and device management  
+- gui.c/h         : gtk ui and event handlers  
+- flake.nix       : nix flake for building and packaging
+
+** notes
+- the program relies on `bluetoothctl` command-line utility for device control.  
+- you may need to run the app with appropriate permissions to control bluetooth devices.
